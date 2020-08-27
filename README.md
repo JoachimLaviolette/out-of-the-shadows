@@ -1,6 +1,6 @@
 # Out Of The Shadows
 
-<center>![alt text](https://medias.portfolio.joachimlaviolette.com/Posts/out-of-the-shadows/cover.gif)</center>
+![cover](https://medias.portfolio.joachimlaviolette.com/Posts/out-of-the-shadows/cover.gif)
 
 ## Summary
 

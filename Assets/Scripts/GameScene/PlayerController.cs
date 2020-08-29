@@ -5,6 +5,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private LayerMask m_walkableSurfaceMask;
     Rigidbody2D m_rb;
+    BoxCollider2D m_bc;
+    [SerializeField]
+    BoxCollider2D m_groundCollider;
     private Animator m_animator;
     [SerializeField]
     [Range(0.01f, 0.2f)]
@@ -21,6 +24,7 @@ public class PlayerController : MonoBehaviour {
     private void Awake()
     {
         m_rb = GetComponent<Rigidbody2D>();
+        m_bc = GetComponent<BoxCollider2D>();
         m_animator = GetComponent<Animator>();
     }
 
@@ -46,15 +50,8 @@ public class PlayerController : MonoBehaviour {
         yield return null;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Vector3 direction = transform.TransformDirection(Vector3.down);
-        Gizmos.DrawRay(new Vector2(transform.position.x, transform.position.y - transform.localScale.y / 2f), direction * m_groundDetectionDistance);
-    }
-
     private bool IsGrounded()
     {
-        return Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - transform.localScale.y / 2f), transform.TransformDirection(Vector2.down), m_groundDetectionDistance, m_walkableSurfaceMask).collider != null;
+        return Physics2D.BoxCast(m_groundCollider.bounds.center, m_groundCollider.bounds.size, 0f, Vector2.down, m_groundDetectionDistance, m_walkableSurfaceMask).collider != null;
     }
 }

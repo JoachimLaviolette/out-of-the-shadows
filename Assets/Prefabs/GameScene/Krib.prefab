@@ -99,6 +99,7 @@ MonoBehaviour:
   m_UILayerMask:
     serializedVersion: 2
     m_Bits: 32
+  m_moveSpeed: 0.2
   m_reward: 1
 --- !u!61 &127807137008416723
 BoxCollider2D:
@@ -171,10 +172,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.419
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10.23
-  m_LightVolumeOpacity: 0
+  m_FalloffIntensity: 0.663
+  m_Color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
+  m_Intensity: 3
+  m_LightVolumeOpacity: 0.203
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0

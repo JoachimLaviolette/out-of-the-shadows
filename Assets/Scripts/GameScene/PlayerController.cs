@@ -4,10 +4,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     [SerializeField]
     private LayerMask m_walkableSurfaceMask;
-    Rigidbody2D m_rb;
-    BoxCollider2D m_bc;
+    private Rigidbody2D m_rb;
     [SerializeField]
-    BoxCollider2D m_groundCollider;
+    private BoxCollider2D m_groundCollider;
     private Animator m_animator;
     [SerializeField]
     [Range(0.01f, 0.2f)]
@@ -24,7 +23,6 @@ public class PlayerController : MonoBehaviour {
     private void Awake()
     {
         m_rb = GetComponent<Rigidbody2D>();
-        m_bc = GetComponent<BoxCollider2D>();
         m_animator = GetComponent<Animator>();
     }
 

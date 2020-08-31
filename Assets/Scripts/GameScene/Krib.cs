@@ -36,7 +36,8 @@ public class Krib : MonoBehaviour
         
         if (player is null) return;
         
-        player.AddScore(m_reward);
+        player.AddKribs(m_reward);
+        player.AddExperience(m_reward * 40);
         StartCoroutine(Pick());
     }
 
@@ -81,12 +82,12 @@ public class Krib : MonoBehaviour
     private void CheckDestroy()
     {
         Collider2D collider = Physics2D.BoxCast(m_boxCollider.bounds.center, m_boxCollider.bounds.size, 0f, Vector2.up, .1f, m_UILayerMask).collider;
-        m_toDestroy = collider is null ? false : collider.gameObject.Equals(UIManager.GetPlayerScore().gameObject);
+        m_toDestroy = collider is null ? false : collider.gameObject.Equals(UIManager.GetPlayerKribs().gameObject);
     }
 
     IEnumerator PickAnimation()
     {
-        transform.position = Vector3.MoveTowards(transform.position, UIManager.GetPlayerScore().transform.position, 0.3f);
+        transform.position = Vector3.MoveTowards(transform.position, UIManager.GetPlayerKribs().transform.position, 0.3f);
         yield return new WaitForEndOfFrame();
     }
 }

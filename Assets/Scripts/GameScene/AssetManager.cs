@@ -4,7 +4,9 @@ public class AssetManager : MonoBehaviour
 {
     private static AssetManager m_instance;
     [SerializeField]
-    private Player m_player; 
+    private Player m_player;
+    [SerializeField]
+    private CameraController m_camera;
 
     private AssetManager() { }
 
@@ -16,5 +18,10 @@ public class AssetManager : MonoBehaviour
     public static Player GetPlayer()
     {
         return m_instance.m_player;
-    }    
+    }
+
+    public static CameraController GetGameCamera()
+    {
+        return m_instance.m_camera;
+    }
 }
